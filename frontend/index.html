@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Hello from frontend</h1>
+    <p id="count"></p>
+
+    <script>
+      fetch("http://localhost:5000/count")
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          const countP = document.getElementById("count");
+          countP.innerText = `This page has been visited ${json.count} times`;
+        });
+    </script>
+  </body>
+</html>
